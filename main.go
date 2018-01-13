@@ -19,9 +19,5 @@ func main() {
 	Papp.Args = nil
 	Papp.WorkingDir = Papp.AppPath
 
-	roamingPath := CreateFolder(PathJoin(Papp.DataPath, "AppData", "Roaming", "Rocket.Chat+"))
-	Log.Infof("Roaming path: %s", roamingPath)
-
-	OverrideEnv("USERPROFILE", Papp.DataPath)
 	Launch()
 }

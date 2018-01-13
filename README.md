@@ -32,7 +32,7 @@ Install `rocketchat-portable-{ia32,x64}-x.x.x-x-setup.exe` where you want then r
 
 If **you have already installed Rocket.Chat from the original release**, do the same thing as a fresh installation and move :
 
-* `%APPDATA%\Rocket.Chat+` to `data\AppData\Roaming\Rocket.Chat+`.
+* `%APPDATA%\Rocket.Chat+` to `data`.
 
 Run `rocketchat-portable.exe` and then you can [remove](https://support.microsoft.com/en-us/instantanswers/ce7ba88b-4e95-4354-b807-35732db36c4d/repair-or-remove-programs) Rocket.Chat from your computer.
 
