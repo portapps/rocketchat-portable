@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.10.3-3 (2018/02/03)
+
+* Upgrade to Rocket.Chat 2.10.3
+
 ## 2.10.2-2 (2018/01/26)
 
 * Upgrade to Rocket.Chat 2.10.2
