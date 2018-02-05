@@ -3,6 +3,11 @@
 package main
 
 import (
+	"io"
+	"os"
+	"path"
+	"strings"
+
 	. "github.com/portapps/portapps"
 )
 
@@ -18,6 +23,19 @@ func main() {
 	Papp.Process = PathJoin(Papp.AppPath, "Rocket.Chat+.exe")
 	Papp.Args = nil
 	Papp.WorkingDir = Papp.AppPath
+
+	fo, err := os.Create(path.Join(Papp.DataPath, "update.json"))
+	if err != nil {
+		Log.Error("Cannot create update.json:", err)
+	}
+	defer fo.Close()
+
+	_, err = io.Copy(fo, strings.NewReader(`{
+  "autoUpdate": false
+}`))
+	if err != nil {
+		Log.Error("Cannot write to update.json:", err)
+	}
 
 	Launch()
 }
