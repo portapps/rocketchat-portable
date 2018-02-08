@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.10.5-6 (2018/02/09)
+
+* Ability to pass custom args to the portable process
+
 ## 2.10.5-5 (2018/02/08)
 
 * Upgrade to Rocket.Chat 2.10.5

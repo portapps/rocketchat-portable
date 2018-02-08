@@ -5,13 +5,13 @@
   branch = "master"
   name = "github.com/google/logger"
   packages = ["."]
-  revision = "09d434b1e522d216684d09421cd0b0213c96c787"
+  revision = "54b4ae679a63f6d6fd5c0009b2471e637eabf784"
 
 [[projects]]
-  branch = "master"
   name = "github.com/portapps/portapps"
   packages = ["."]
-  revision = "378e30b69fe4c47489ce3d96cfcefcc923c78d2d"
+  revision = "98b6b58190e7fc96c1f280b669d28e1ebaddd89a"
+  version = "1.7"
 
 [[projects]]
   branch = "master"

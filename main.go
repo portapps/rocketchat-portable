@@ -37,5 +37,5 @@ func main() {
 		Log.Error("Cannot write to update.json:", err)
 	}
 
-	Launch()
+	Launch(os.Args[1:])
 }
