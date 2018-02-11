@@ -22,7 +22,7 @@
     <echo message="Extracting embedded ${atf.arch} archive"/>
     <property name="extract.path2" value="${tmp.path}\extract2"/>
     <if>
-      <equals arg1="${atf.arch}" arg2="ia32"/>
+      <equals arg1="${atf.arch}" arg2="win32"/>
       <then>
         <sevenzip-ax src="${extract.path}\$PLUGINSDIR\app-32.7z" dest="${extract.path2}"/>
       </then>

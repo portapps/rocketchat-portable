@@ -19,14 +19,14 @@ Tested on Windows 7, Windows 8.1 and Windows 10.
 
 There are different kinds of artifacts :
 
-* `rocketchat-portable-{ia32,x64}-x.x.x-x-setup.exe` : Full portable release of Rocket.Chat as a setup. **Recommended way**!
-* `rocketchat-portable-{ia32,x64}-x.x.x-x.7z` : Full portable release of Rocket.Chat as a 7z archive.
-* `rocketchat-portable-{ia32,x64}.exe` : Only the portable binary (must be renamed `rocketchat-portable.exe`)
+* `rocketchat-portable-win{32,64}-x.x.x-x-setup.exe` : Full portable release of Rocket.Chat as a setup. **Recommended way**!
+* `rocketchat-portable-win{32,64}-x.x.x-x.7z` : Full portable release of Rocket.Chat as a 7z archive.
+* `rocketchat-portable-win{32,64}.exe` : Only the portable binary (must be renamed `rocketchat-portable.exe`)
 * `rocketchat-setup-x.x.x.exe` : The original release from the [official website](https://rocket.chat/download).
 
 ### Fresh installation
 
-Install `rocketchat-portable-{ia32,x64}-x.x.x-x-setup.exe` where you want then run `rocketchat-portable.exe`.
+Install `rocketchat-portable-win{32,64}-x.x.x-x-setup.exe` where you want then run `rocketchat-portable.exe`.
 
 ### App already installed
 
