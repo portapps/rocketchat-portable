@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.11.0-8 (2018/06/11)
+
+* Upgrade to Rocket.Chat 2.11.0
+
 ## 2.10.5-7 (2018/02/11)
 
 * Move ia32/x64 to win32/win64 for arch def
