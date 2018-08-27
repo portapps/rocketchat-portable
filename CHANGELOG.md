@@ -3,6 +3,7 @@
 ## 2.13.0-11 (2018/08/28)
 
 * Upgrade to Rocket.Chat 2.13.0
+* No more win32 releases
 
 ## 2.12.1-10 (2018/08/15)
 
