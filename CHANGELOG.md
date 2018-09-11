@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.13.2-13 (2018/09/11)
+
+* Upgrade to Rocket.Chat 2.13.2
+* Upgrade to Go 1.11
+* Use [go mod](https://golang.org/cmd/go/#hdr-Module_maintenance) instead of `dep`
+
 ## 2.13.1-12 (2018/08/31)
 
 * Upgrade to Rocket.Chat 2.13.1
