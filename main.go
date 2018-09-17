@@ -20,7 +20,7 @@ func init() {
 func main() {
 	Papp.AppPath = AppPathJoin("app")
 	Papp.DataPath = AppPathJoin("data")
-	Papp.Process = PathJoin(Papp.AppPath, "Rocket.Chat+.exe")
+	Papp.Process = PathJoin(Papp.AppPath, "Rocket.Chat.exe")
 	Papp.Args = nil
 	Papp.WorkingDir = Papp.AppPath
 

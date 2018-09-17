@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.13.2-14 (2018/09/17)
+
+* `Rocket.Chat+.exe` renamed `Rocket.Chat.exe` (Issue #1)
+
 ## 2.13.2-13 (2018/09/11)
 
 * Upgrade to Rocket.Chat 2.13.2
