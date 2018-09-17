@@ -2,6 +2,7 @@
 
 ## 2.13.2-14 (2018/09/17)
 
+* electron userData path overrided by app (Issue #2)
 * `Rocket.Chat+.exe` renamed `Rocket.Chat.exe` (Issue #1)
 
 ## 2.13.2-13 (2018/09/11)
