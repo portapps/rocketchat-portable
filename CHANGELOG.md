@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.13.3-15 (2018/09/19)
+
+* Upgrade to Rocket.Chat 2.13.3
+
 ## 2.13.2-14 (2018/09/17)
 
 * electron userData path overrided by app (Issue #2)
