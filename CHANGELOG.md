@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.13.3-16 (2018/10/03)
+
+* Fix Windows desktop notifications not working (Issue #3)
+
 ## 2.13.3-15 (2018/09/19)
 
 * Upgrade to Rocket.Chat 2.13.3
