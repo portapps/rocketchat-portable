@@ -5,6 +5,7 @@
 package main
 
 import (
+	"encoding/json"
 	"io"
 	"io/ioutil"
 	"os"
@@ -23,22 +24,41 @@ func init() {
 
 func main() {
 	Papp.AppPath = AppPathJoin("app")
-	Papp.DataPath = AppPathJoin("data")
+	Papp.DataPath = CreateFolder(AppPathJoin("data"))
 	Papp.Process = PathJoin(Papp.AppPath, "Rocket.Chat.exe")
 	Papp.Args = nil
 	Papp.WorkingDir = Papp.AppPath
 
-	fo, err := os.Create(path.Join(Papp.DataPath, "update.json"))
-	if err != nil {
-		Log.Error("Cannot create update.json:", err)
-	}
-	defer fo.Close()
+	updateSettingsPath := path.Join(Papp.DataPath, "update.json")
+	if _, err := os.Stat(updateSettingsPath); err == nil {
+		rawSettings, err := ioutil.ReadFile(updateSettingsPath)
+		if err == nil {
+			jsonMapSettings := make(map[string]interface{})
+			json.Unmarshal(rawSettings, &jsonMapSettings)
+			Log.Info("Current update settings:", jsonMapSettings)
 
-	_, err = io.Copy(fo, strings.NewReader(`{
-  "autoUpdate": false
-}`))
-	if err != nil {
-		Log.Error("Cannot write to update.json:", err)
+			jsonMapSettings["autoUpdate"] = false
+			jsonMapSettings["canUpdate"] = false
+			Log.Info("New settings:", jsonMapSettings)
+
+			jsonSettings, err := json.Marshal(jsonMapSettings)
+			if err != nil {
+				Log.Error("Update settings marshal:", err)
+			}
+			err = ioutil.WriteFile(updateSettingsPath, jsonSettings, 0644)
+			if err != nil {
+				Log.Error("Write Update settings:", err)
+			}
+		}
+	} else {
+		fo, err := os.Create(updateSettingsPath)
+		if err != nil {
+			Log.Error("Cannot create update.json:", err)
+		}
+		defer fo.Close()
+		if _, err = io.Copy(fo, strings.NewReader(`{"autoUpdate":false,"canUpdate":false}`)); err != nil {
+			Log.Error("Cannot write to update.json:", err)
+		}
 	}
 
 	shortcutPath := path.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Rocket.Chat Portable.lnk")
