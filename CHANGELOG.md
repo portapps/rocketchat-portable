@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.13.3-17 (2018/10/05)
+
+* Fix `update.json` cannot be written
+* Write update settings properly
+
 ## 2.13.3-16 (2018/10/03)
 
 * Fix Windows desktop notifications not working (Issue #3)
