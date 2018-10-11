@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.14.0-18 (2018/10/11)
+
+* Upgrade to Rocket.Chat 2.14.0
+
 ## 2.13.3-17 (2018/10/05)
 
 * Fix `update.json` cannot be written
