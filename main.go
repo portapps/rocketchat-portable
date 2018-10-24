@@ -1,5 +1,5 @@
 //go:generate go install -v github.com/kevinburke/go-bindata/go-bindata
-//go:generate go-bindata -pkg assets -o assets/assets.go res/Rocket.Chat.lnk
+//go:generate go-bindata -prefix res/ -pkg assets -o assets/assets.go res/Rocket.Chat.lnk
 //go:generate go install -v github.com/josephspurrier/goversioninfo/cmd/goversioninfo
 //go:generate goversioninfo -icon=res/papp.ico
 package main
@@ -61,10 +61,9 @@ func main() {
 		}
 	}
 
-	shortcutPath := path.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Rocket.Chat Portable.lnk")
-
 	// Copy default shortcut
-	defaultShortcut, err := assets.Asset("res/Rocket.Chat.lnk")
+	shortcutPath := path.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Rocket.Chat Portable.lnk")
+	defaultShortcut, err := assets.Asset("Rocket.Chat.lnk")
 	if err != nil {
 		Log.Error("Cannot load asset Rocket.Chat.lnk:", err)
 	}
@@ -77,9 +76,10 @@ func main() {
 	err = CreateShortcut(WindowsShortcut{
 		ShortcutPath:     shortcutPath,
 		TargetPath:       Papp.Process,
-		Description:      "Rocket.Chat Portable by Portapps",
-		IconLocation:     Papp.Process,
-		WorkingDirectory: Papp.AppPath,
+		Arguments:        WindowsShortcutProperty{Clear: true},
+		Description:      WindowsShortcutProperty{Value: "Rocket.Chat Portable by Portapps"},
+		IconLocation:     WindowsShortcutProperty{Value: Papp.Process},
+		WorkingDirectory: WindowsShortcutProperty{Value: Papp.AppPath},
 	})
 	if err != nil {
 		Log.Error("Cannot create shortcut:", err)
