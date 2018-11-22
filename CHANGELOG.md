@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.14.4-21 (2018/11/22)
+
+* Upgrade to Rocket.Chat 2.14.4
+
 ## 2.14.3-20 (2018/11/14)
 
 * Upgrade to Rocket.Chat 2.14.3
