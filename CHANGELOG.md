@@ -1,6 +1,11 @@
 # Changelog
 
-## 2.14.7-23 (2018/11/18)
+## 2.15.0-2 (2019/02/25)
+
+* Upgrade to Rocket.Chat 2.15.0
+* Switch to Travis CI
+
+## 2.14.7-23 (2019/01/18)
 
 * Upgrade to Rocket.Chat 2.14.7
 
