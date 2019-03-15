@@ -5,8 +5,6 @@
 package main
 
 import (
-	_ "github.com/kevinburke/go-bindata"
-
 	"encoding/json"
 	"io"
 	"io/ioutil"
@@ -14,52 +12,59 @@ import (
 	"path"
 	"strings"
 
+	_ "github.com/kevinburke/go-bindata"
 	. "github.com/portapps/portapps"
+	"github.com/portapps/portapps/pkg/shortcut"
+	"github.com/portapps/portapps/pkg/utl"
 	"github.com/portapps/rocketchat-portable/assets"
 )
 
+var (
+	app *App
+)
+
 func init() {
-	Papp.ID = "rocketchat-portable"
-	Papp.Name = "Rocket.Chat"
-	Init()
+	var err error
+
+	// Init app
+	if app, err = New("rocketchat-portable", "Rocket.Chat"); err != nil {
+		Log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
+	}
 }
 
 func main() {
-	Papp.AppPath = AppPathJoin("app")
-	Papp.DataPath = CreateFolder(AppPathJoin("data"))
-	Papp.Process = PathJoin(Papp.AppPath, "Rocket.Chat.exe")
-	Papp.Args = nil
-	Papp.WorkingDir = Papp.AppPath
+	utl.CreateFolder(app.DataPath)
+	app.Process = utl.PathJoin(app.AppPath, "Rocket.Chat.exe")
 
-	updateSettingsPath := path.Join(Papp.DataPath, "update.json")
+	updateSettingsPath := path.Join(app.DataPath, "update.json")
 	if _, err := os.Stat(updateSettingsPath); err == nil {
 		rawSettings, err := ioutil.ReadFile(updateSettingsPath)
 		if err == nil {
 			jsonMapSettings := make(map[string]interface{})
 			json.Unmarshal(rawSettings, &jsonMapSettings)
-			Log.Info("Current update settings:", jsonMapSettings)
+			Log.Info().Msgf("Current update settings: %s", jsonMapSettings)
 
 			jsonMapSettings["autoUpdate"] = false
 			jsonMapSettings["canUpdate"] = false
-			Log.Info("New settings:", jsonMapSettings)
+			Log.Info().Msgf("New update settings: %s", jsonMapSettings)
 
 			jsonSettings, err := json.Marshal(jsonMapSettings)
 			if err != nil {
-				Log.Error("Update settings marshal:", err)
+				Log.Error().Err(err).Msg("Update settings marshal")
 			}
 			err = ioutil.WriteFile(updateSettingsPath, jsonSettings, 0644)
 			if err != nil {
-				Log.Error("Write Update settings:", err)
+				Log.Error().Err(err).Msg("Write update settings")
 			}
 		}
 	} else {
 		fo, err := os.Create(updateSettingsPath)
 		if err != nil {
-			Log.Error("Cannot create update.json:", err)
+			Log.Error().Err(err).Msg("Cannot create update.json")
 		}
 		defer fo.Close()
 		if _, err = io.Copy(fo, strings.NewReader(`{"autoUpdate":false,"canUpdate":false}`)); err != nil {
-			Log.Error("Cannot write to update.json:", err)
+			Log.Error().Err(err).Msg("Cannot write to update.json")
 		}
 	}
 
@@ -67,27 +72,30 @@ func main() {
 	shortcutPath := path.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Rocket.Chat Portable.lnk")
 	defaultShortcut, err := assets.Asset("Rocket.Chat.lnk")
 	if err != nil {
-		Log.Error("Cannot load asset Rocket.Chat.lnk:", err)
+		Log.Error().Err(err).Msg("Cannot load asset Rocket.Chat.lnk")
 	}
 	err = ioutil.WriteFile(shortcutPath, defaultShortcut, 0644)
 	if err != nil {
-		Log.Error("Cannot write default shortcut:", err)
+		Log.Error().Err(err).Msg("Cannot write default shortcut")
 	}
 
 	// Update default shortcut
-	err = CreateShortcut(WindowsShortcut{
+	err = shortcut.Create(shortcut.Shortcut{
 		ShortcutPath:     shortcutPath,
-		TargetPath:       Papp.Process,
-		Arguments:        WindowsShortcutProperty{Clear: true},
-		Description:      WindowsShortcutProperty{Value: "Rocket.Chat Portable by Portapps"},
-		IconLocation:     WindowsShortcutProperty{Value: Papp.Process},
-		WorkingDirectory: WindowsShortcutProperty{Value: Papp.AppPath},
+		TargetPath:       app.Process,
+		Arguments:        shortcut.Property{Clear: true},
+		Description:      shortcut.Property{Value: "Rocket.Chat Portable by Portapps"},
+		IconLocation:     shortcut.Property{Value: app.Process},
+		WorkingDirectory: shortcut.Property{Value: app.AppPath},
 	})
 	if err != nil {
-		Log.Error("Cannot create shortcut:", err)
+		Log.Error().Err(err).Msg("Cannot create shortcut")
 	}
+	defer func() {
+		if err := os.Remove(shortcutPath); err != nil {
+			Log.Error().Err(err).Msg("Cannot remove shortcut")
+		}
+	}()
 
-	Launch(os.Args[1:])
-
-	_ = os.Remove(shortcutPath)
+	app.Launch(os.Args[1:])
 }

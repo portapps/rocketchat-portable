@@ -49,7 +49,7 @@
 
     <echo message="Replacing in app.asar..."/>
     <assertfile file="${extract.path}\resources\app\${electron.appasar.file}"/>
-    <replace file="${extract.path}\resources\app\${electron.appasar.file}">
+    <replace file="${extract.path}\resources\app\${electron.appasar.file}" failOnNoReplacements="true">
       <replacefilter token="${electron.appasar.search}" value="${electron.appasar.replace}"/>
       <replacefilter token="${electron.appasar.search2}" value="${electron.appasar.replace2}"/>
     </replace>
