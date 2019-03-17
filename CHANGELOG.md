@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.15.1-3 (2019/03/15)
+
+* Upgrade to Rocket.Chat 2.15.1
+* Portapps 1.20.2
+
 ## 2.15.0-2 (2019/02/25)
 
 * Upgrade to Rocket.Chat 2.15.0
