@@ -1,38 +1,43 @@
 # Changelog
 
+## 2.15.2-4 (2019/04/18)
+
+* Rocket.Chat 2.15.2
+* Portapps 1.22.1
+
 ## 2.15.1-3 (2019/03/15)
 
-* Upgrade to Rocket.Chat 2.15.1
+* Rocket.Chat 2.15.1
 * Portapps 1.20.2
 
 ## 2.15.0-2 (2019/02/25)
 
-* Upgrade to Rocket.Chat 2.15.0
+* Rocket.Chat 2.15.0
 * Switch to Travis CI
 
 ## 2.14.7-23 (2019/01/18)
 
-* Upgrade to Rocket.Chat 2.14.7
+* Rocket.Chat 2.14.7
 
 ## 2.14.5-22 (2018/11/04)
 
-* Upgrade to Rocket.Chat 2.14.5
+* Rocket.Chat 2.14.5
 
 ## 2.14.4-21 (2018/11/22)
 
-* Upgrade to Rocket.Chat 2.14.4
+* Rocket.Chat 2.14.4
 
 ## 2.14.3-20 (2018/11/14)
 
-* Upgrade to Rocket.Chat 2.14.3
+* Rocket.Chat 2.14.3
 
 ## 2.14.1-19 (2018/10/26)
 
-* Upgrade to Rocket.Chat 2.14.1
+* Rocket.Chat 2.14.1
 
 ## 2.14.0-18 (2018/10/11)
 
-* Upgrade to Rocket.Chat 2.14.0
+* Rocket.Chat 2.14.0
 
 ## 2.13.3-17 (2018/10/05)
 
@@ -45,7 +50,7 @@
 
 ## 2.13.3-15 (2018/09/19)
 
-* Upgrade to Rocket.Chat 2.13.3
+* Rocket.Chat 2.13.3
 
 ## 2.13.2-14 (2018/09/17)
 
@@ -54,31 +59,31 @@
 
 ## 2.13.2-13 (2018/09/11)
 
-* Upgrade to Rocket.Chat 2.13.2
-* Upgrade to Go 1.11
+* Rocket.Chat 2.13.2
+* Go 1.11
 * Use [go mod](https://golang.org/cmd/go/#hdr-Module_maintenance) instead of `dep`
 
 ## 2.13.1-12 (2018/08/31)
 
-* Upgrade to Rocket.Chat 2.13.1
+* Rocket.Chat 2.13.1
 * win32 releases restored
 
 ## 2.13.0-11 (2018/08/28)
 
-* Upgrade to Rocket.Chat 2.13.0
+* Rocket.Chat 2.13.0
 * No more win32 releases
 
 ## 2.12.1-10 (2018/08/15)
 
-* Upgrade to Rocket.Chat 2.12.1
+* Rocket.Chat 2.12.1
 
 ## 2.12.0-9 (2018/08/05)
 
-* Upgrade to Rocket.Chat 2.12.0
+* Rocket.Chat 2.12.0
 
 ## 2.11.0-8 (2018/06/11)
 
-* Upgrade to Rocket.Chat 2.11.0
+* Rocket.Chat 2.11.0
 
 ## 2.10.5-7 (2018/02/11)
 
@@ -92,15 +97,15 @@
 
 ## 2.10.5-5 (2018/02/08)
 
-* Upgrade to Rocket.Chat 2.10.5
+* Rocket.Chat 2.10.5
 
 ## 2.10.3-4 (2018/02/03)
 
-* Upgrade to Rocket.Chat 2.10.3
+* Rocket.Chat 2.10.3
 
 ## 2.10.2-3 (2018/01/26)
 
-* Upgrade to Rocket.Chat 2.10.2
+* Rocket.Chat 2.10.2
 
 ## 2.10.1-2 (2018/01/13)
 
