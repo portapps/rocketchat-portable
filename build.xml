@@ -36,6 +36,7 @@
     </move>
 
     <setelectronuserdata path="${extract.path}"
+       file="${electron.userdata.file}"
        search="${electron.userdata.search}"
        replace="${electron.userdata.replace}"
     />
