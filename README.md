@@ -4,15 +4,21 @@
   <a href="https://portapps.io/app/rocketchat-portable/#download"><img src="https://img.shields.io/github/release/portapps/rocketchat-portable.svg?style=flat-square" alt="GitHub release"></a>
   <a href="https://portapps.io/app/rocketchat-portable/#download"><img src="https://img.shields.io/github/downloads/portapps/rocketchat-portable/total.svg?style=flat-square" alt="Total downloads"></a>
   <a href="https://travis-ci.com/portapps/rocketchat-portable"><img src="https://img.shields.io/travis/com/portapps/rocketchat-portable/master.svg?style=flat-square" alt="Build Status"></a>
-  <a href="https://github.com/portapps/portapps"><img src="https://img.shields.io/badge/portapps-1.22.2-479fdb.svg?style=flat-square" alt="Portapps version"></a>
+  <a href="https://github.com/portapps/portapps"><img src="https://img.shields.io/badge/portapps-1.23.0-479fdb.svg?style=flat-square" alt="Portapps version"></a>
   <a href="https://goreportcard.com/report/github.com/portapps/rocketchat-portable"><img src="https://goreportcard.com/badge/github.com/portapps/rocketchat-portable?style=flat-square" alt="Go Report"></a>
   <a href="https://www.codacy.com/app/portapps/rocketchat-portable"><img src="https://img.shields.io/codacy/grade/8fa6391e00fc4a7e9eb1b1108d5655a2.svg?style=flat-square" alt="Code Quality"></a>
   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WQD7AQGPDEPSG"><img src="https://img.shields.io/badge/donate-paypal-7057ff.svg?style=flat-square" alt="Donate Paypal"></a>
 </p>
 
+## Notice of Non-Affiliation and Disclaimer
+
+Portapps is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Rocket.Chat, or any of its subsidiaries or its affiliates. The official Rocket.Chat website can be found at https://rocket.chat/.
+
+The name Rocket.Chat® as well as related names, marks, emblems and images are registered trademarks of their respective owners.
+
 ## About
 
-[Rocket.Chat](https://rocket.chat/) portable app made with 🚀 [Portapps](https://portapps.io).<br />
+Rocket.Chat portable app made with 🚀 [Portapps](https://portapps.io).<br />
 Documentation and downloads can be found on https://portapps.io/app/rocketchat-portable/
 
 ## How can I help ?
