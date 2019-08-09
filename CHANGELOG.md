@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.15.5-7 (2019/08/10)
+
+* Rocket.Chat 2.15.5 (rebuilt)
+
 ## 2.15.5-6 (2019/08/09)
 
 * Rocket.Chat 2.15.5
