@@ -34,6 +34,9 @@ func init() {
 func main() {
 	utl.CreateFolder(app.DataPath)
 	app.Process = utl.PathJoin(app.AppPath, "Rocket.Chat.exe")
+	app.Args = []string{
+		"--user-data-dir=" + app.DataPath,
+	}
 
 	updateSettingsPath := path.Join(app.DataPath, "update.json")
 	if _, err := os.Stat(updateSettingsPath); err == nil {
