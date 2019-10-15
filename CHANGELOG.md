@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.0-8 (2019/10/15)
+
+* Rocket.Chat 2.16.0
+* Portapps 1.28.0
+
 ## 2.15.5-7 (2019/08/10)
 
 * Rocket.Chat 2.15.5 (rebuilt)
