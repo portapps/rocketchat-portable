@@ -18,15 +18,25 @@ import (
 	"github.com/portapps/rocketchat-portable/assets"
 )
 
+type config struct {
+	Cleanup bool `yaml:"cleanup" mapstructure:"cleanup"`
+}
+
 var (
 	app *App
+	cfg *config
 )
 
 func init() {
 	var err error
 
+	// Default config
+	cfg = &config{
+		Cleanup: false,
+	}
+
 	// Init app
-	if app, err = New("rocketchat-portable", "Rocket.Chat"); err != nil {
+	if app, err = NewWithCfg("rocketchat-portable", "Rocket.Chat", cfg); err != nil {
 		Log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
 	}
 }
@@ -36,6 +46,15 @@ func main() {
 	app.Process = utl.PathJoin(app.AppPath, "Rocket.Chat.exe")
 	app.Args = []string{
 		"--user-data-dir=" + app.DataPath,
+	}
+
+	// Cleanup on exit
+	if cfg.Cleanup {
+		defer func() {
+			utl.Cleanup([]string{
+				path.Join(os.Getenv("APPDATA"), "Rocket.Chat"),
+			})
+		}()
 	}
 
 	updateSettingsPath := path.Join(app.DataPath, "update.json")
