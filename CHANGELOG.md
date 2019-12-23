@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.17.2-13 (2019/12/23)
+
+* Rocket.Chat 2.17.2
+* Add cleanup config
+* Portapps 1.31.0
+
 ## 2.17.1-12 (2019/12/11)
 
 * Rocket.Chat 2.17.1
