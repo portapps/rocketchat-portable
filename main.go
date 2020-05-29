@@ -119,5 +119,6 @@ func main() {
 		}
 	}()
 
+	defer app.Close()
 	app.Launch(os.Args[1:])
 }
