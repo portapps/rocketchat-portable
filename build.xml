@@ -34,22 +34,6 @@
     <move todir="${extract.path}">
       <fileset dir="${extract.path2}" defaultexcludes="no"/>
     </move>
-
-    <echo message="Extracting app.asar..."/>
-    <exec executable="asar.cmd" failonerror="true" dir="${extract.path}\resources">
-      <arg value="extract"/>
-      <arg value="app.asar"/>
-      <arg value="app"/>
-    </exec>
-
-    <echo message="Replacing in app.asar..."/>
-    <assertfile file="${extract.path}\resources\app\${electron.appasar.file}"/>
-    <replace file="${extract.path}\resources\app\${electron.appasar.file}" failOnNoReplacements="true">
-      <replacefilter token="${electron.appasar.search}" value="${electron.appasar.replace}"/>
-    </replace>
-
-    <echo message="Removing app.asar..."/>
-    <delete file="${extract.path}\resources\app.asar"/>
   </target>
 
 </project>
