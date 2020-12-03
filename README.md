@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://portapps.io/app/rocketchat-portable/#download"><img src="https://img.shields.io/github/release/portapps/rocketchat-portable.svg?style=flat-square" alt="GitHub release"></a>
   <a href="https://portapps.io/app/rocketchat-portable/#download"><img src="https://img.shields.io/github/downloads/portapps/rocketchat-portable/total.svg?style=flat-square" alt="Total downloads"></a>
-  <a href="https://travis-ci.com/portapps/rocketchat-portable"><img src="https://img.shields.io/travis/com/portapps/rocketchat-portable/master.svg?style=flat-square" alt="Build Status"></a>
+  <a href="https://github.com/portapps/rocketchat-portable/actions?workflow=build"><img src="https://img.shields.io/github/workflow/status/portapps/rocketchat-portable/build?label=build&logo=github&style=flat-square" alt="Build Status"></a>
   <a href="https://goreportcard.com/report/github.com/portapps/rocketchat-portable"><img src="https://goreportcard.com/badge/github.com/portapps/rocketchat-portable?style=flat-square" alt="Go Report"></a>
   <a href="https://app.codacy.com/gh/portapps/rocketchat-portable"><img src="https://img.shields.io/codacy/grade/8fa6391e00fc4a7e9eb1b1108d5655a2.svg?style=flat-square" alt="Code Quality"></a>
   <br /><a href="https://github.com/sponsors/crazy-max"><img src="https://img.shields.io/badge/sponsor-crazy--max-181717.svg?logo=github&style=flat-square" alt="Become a sponsor"></a>
@@ -23,7 +23,7 @@ The name Rocket.Chat™ as well as related names, marks, emblems and images are 
 Rocket.Chat™ portable app made with 🚀 [Portapps](https://portapps.io).<br />
 Documentation and downloads can be found on https://portapps.io/app/rocketchat-portable/
 
-## How can I help ?
+## How can I help?
 
 All kinds of contributions are welcome :raised_hands:! The most basic way to show your support is to star :star2: the project, or to raise issues :speech_balloon: You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max) :clap: or by making a [Paypal donation](https://www.paypal.me/crazyws) to ensure this journey continues indefinitely! :rocket:
 
