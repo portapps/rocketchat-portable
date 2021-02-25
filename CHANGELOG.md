@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.1-21 (2021/02/25)
+
+* Rocket.Chat 3.1.1
+* Portapps 3.2.2
+
 ## 3.0.7-20 (2020/12/19)
 
 * Rocket.Chat 3.0.7
