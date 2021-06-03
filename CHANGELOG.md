@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.2.2-22 (2021/06/03)
+
+* Rocket.Chat 3.2.2
+* No more win32 releases
+
 ## 3.1.1-21 (2021/02/25)
 
 * Rocket.Chat 3.1.1
