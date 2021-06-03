@@ -3,6 +3,7 @@
 ## 3.2.2-22 (2021/06/03)
 
 * Rocket.Chat 3.2.2
+* Portapps 3.3.0
 * No more win32 releases
 
 ## 3.1.1-21 (2021/02/25)
