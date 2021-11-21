@@ -7,7 +7,6 @@ package main
 import (
 	"encoding/json"
 	"io"
-	"io/ioutil"
 	"os"
 	"path"
 	"strings"
@@ -60,7 +59,7 @@ func main() {
 
 	updateSettingsPath := path.Join(app.DataPath, "update.json")
 	if _, err := os.Stat(updateSettingsPath); err == nil {
-		rawSettings, err := ioutil.ReadFile(updateSettingsPath)
+		rawSettings, err := os.ReadFile(updateSettingsPath)
 		if err == nil {
 			jsonMapSettings := make(map[string]interface{})
 			json.Unmarshal(rawSettings, &jsonMapSettings)
@@ -74,7 +73,7 @@ func main() {
 			if err != nil {
 				log.Error().Err(err).Msg("Update settings marshal")
 			}
-			err = ioutil.WriteFile(updateSettingsPath, jsonSettings, 0644)
+			err = os.WriteFile(updateSettingsPath, jsonSettings, 0644)
 			if err != nil {
 				log.Error().Err(err).Msg("Write update settings")
 			}
@@ -96,7 +95,7 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("Cannot load asset Rocket.Chat.lnk")
 	}
-	err = ioutil.WriteFile(shortcutPath, defaultShortcut, 0644)
+	err = os.WriteFile(shortcutPath, defaultShortcut, 0644)
 	if err != nil {
 		log.Error().Err(err).Msg("Cannot write default shortcut")
 	}
