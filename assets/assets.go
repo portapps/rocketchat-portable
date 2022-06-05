@@ -227,7 +227,7 @@ type bintree struct {
 }
 
 var _bintree = &bintree{nil, map[string]*bintree{
-	"Rocket.Chat.lnk": &bintree{rocketChatLnk, map[string]*bintree{}},
+	"Rocket.Chat.lnk": {rocketChatLnk, map[string]*bintree{}},
 }}
 
 // RestoreAsset restores an asset under the given directory.
