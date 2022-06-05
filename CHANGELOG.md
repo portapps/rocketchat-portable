@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.8.7-24 (2022/06/05)
+
+* Rocket.Chat 3.8.7
+* Portapps 3.5.0
+
 ## 3.7.6-23 (2022/01/27)
 
 * Rocket.Chat 3.7.6
