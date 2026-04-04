@@ -1,7 +1,6 @@
 //go:generate go install -v github.com/kevinburke/go-bindata/v4/go-bindata
 //go:generate go-bindata -prefix res/ -pkg assets -o assets/assets.go res/Rocket.Chat.lnk
 //go:generate go install -v github.com/josephspurrier/goversioninfo/cmd/goversioninfo
-//go:generate goversioninfo -icon=res/papp.ico -manifest=res/papp.manifest
 package main
 
 import (
@@ -9,6 +8,7 @@ import (
 	"io"
 	"os"
 	"path"
+	"path/filepath"
 	"strings"
 
 	"github.com/portapps/portapps/v3"
@@ -43,7 +43,7 @@ func init() {
 
 func main() {
 	utl.CreateFolder(app.DataPath)
-	app.Process = utl.PathJoin(app.AppPath, "Rocket.Chat.exe")
+	app.Process = filepath.Join(app.AppPath, "Rocket.Chat.exe")
 	app.Args = []string{
 		"--user-data-dir=" + app.DataPath,
 	}
