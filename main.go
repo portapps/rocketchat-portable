@@ -7,14 +7,13 @@ import (
 	"encoding/json"
 	"io"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
 
 	"github.com/portapps/portapps/v3"
+	"github.com/portapps/portapps/v3/pkg/files"
 	"github.com/portapps/portapps/v3/pkg/log"
 	"github.com/portapps/portapps/v3/pkg/shortcut"
-	"github.com/portapps/portapps/v3/pkg/utl"
 	"github.com/portapps/rocketchat-portable/assets"
 )
 
@@ -42,7 +41,9 @@ func init() {
 }
 
 func main() {
-	utl.CreateFolder(app.DataPath)
+	if err := os.MkdirAll(app.DataPath, 0o755); err != nil {
+		log.Fatal().Err(err).Msg("Cannot create data path")
+	}
 	app.Process = filepath.Join(app.AppPath, "Rocket.Chat.exe")
 	app.Args = []string{
 		"--user-data-dir=" + app.DataPath,
@@ -51,13 +52,11 @@ func main() {
 	// Cleanup on exit
 	if cfg.Cleanup {
 		defer func() {
-			utl.Cleanup([]string{
-				path.Join(os.Getenv("APPDATA"), "Rocket.Chat"),
-			})
+			files.Cleanup(filepath.Join(os.Getenv("APPDATA"), "Rocket.Chat"))
 		}()
 	}
 
-	updateSettingsPath := path.Join(app.DataPath, "update.json")
+	updateSettingsPath := filepath.Join(app.DataPath, "update.json")
 	if _, err := os.Stat(updateSettingsPath); err == nil {
 		rawSettings, err := os.ReadFile(updateSettingsPath)
 		if err == nil {
@@ -90,7 +89,7 @@ func main() {
 	}
 
 	// Copy default shortcut
-	shortcutPath := path.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Rocket.Chat Portable.lnk")
+	shortcutPath := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Rocket.Chat Portable.lnk")
 	defaultShortcut, err := assets.Asset("Rocket.Chat.lnk")
 	if err != nil {
 		log.Error().Err(err).Msg("Cannot load asset Rocket.Chat.lnk")
