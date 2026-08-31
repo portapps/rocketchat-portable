@@ -1,9 +1,8 @@
-//go:generate go install -v github.com/kevinburke/go-bindata/v4/go-bindata
-//go:generate go-bindata -prefix res/ -pkg assets -o assets/assets.go res/Rocket.Chat.lnk
 //go:generate go install -v github.com/josephspurrier/goversioninfo/cmd/goversioninfo
 package main
 
 import (
+	_ "embed"
 	"encoding/json"
 	"io"
 	"os"
@@ -14,8 +13,10 @@ import (
 	"github.com/portapps/portapps/v3/pkg/files"
 	"github.com/portapps/portapps/v3/pkg/log"
 	"github.com/portapps/portapps/v3/pkg/shortcut"
-	"github.com/portapps/rocketchat-portable/assets"
 )
+
+//go:embed res/Rocket.Chat.lnk
+var defaultShortcut []byte
 
 type config struct {
 	Cleanup bool `yaml:"cleanup" mapstructure:"cleanup"`
@@ -90,11 +91,7 @@ func main() {
 
 	// Copy default shortcut
 	shortcutPath := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Rocket.Chat Portable.lnk")
-	defaultShortcut, err := assets.Asset("Rocket.Chat.lnk")
-	if err != nil {
-		log.Error().Err(err).Msg("Cannot load asset Rocket.Chat.lnk")
-	}
-	err = os.WriteFile(shortcutPath, defaultShortcut, 0644)
+	err := os.WriteFile(shortcutPath, defaultShortcut, 0644)
 	if err != nil {
 		log.Error().Err(err).Msg("Cannot write default shortcut")
 	}
